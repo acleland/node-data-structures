@@ -1,0 +1,24 @@
+{
+  "name": "spotlight-dsna-node-data-structures",
+  "version": "1.0.0",
+  "description": "DS&A: Node Based Data Structures ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alchemycodelab/spotlight-dsna-node-data-structures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alchemycodelab/spotlight-dsna-node-data-structures/issues"
+  },
+  "homepage": "https://github.com/alchemycodelab/spotlight-dsna-node-data-structures#readme",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
+}
