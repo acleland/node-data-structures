@@ -77,16 +77,75 @@ class BinaryTreeNode {
   }
 }
 
+class PersonTreeNode {
+  constructor(person) {
+    this.value = person.name;
+    this.person = person;
+    this.left = null;
+    this.right = null;
+  }
+
+  add(person) {  // val here is { name: some string }
+    if (person.name  <this.value) {
+      if (!this.left) {
+        this.left = new PersonTreeNode(person);
+      } else {
+        this.left.add(person);
+      }
+    } else {
+      if (!this.right) {
+        this.right = new PersonTreeNode(person);
+      } else {
+        this.right.add(person);
+      }
+    }
+  }
+  
+  findPerson(name) {
+    if (this.value === name) {
+      return this.person;
+    }
+    if (name < this.value) {
+      if (this.left) {
+        return this.left.findPerson(name);
+      } else {
+        return 'not in the tree boss';
+      }
+    } else {
+      if (this.right) {
+        return this.right.findPerson(name);
+      } else {
+        return 'not in the tree boss';
+      }
+    }
+    // Implement me!
+  }
+}
+
+// PersonTree tests
+
+console.log('Jimbo' > 'Fred');
+const jimbo = { name: 'Jimbo' };
+const personTree = new PersonTreeNode(jimbo);
+console.log(personTree.findPerson('Jimbo'));
+personTree.add( { name: 'Fred' });
+personTree.add( { name: 'Bill' });
+personTree.add( { name: 'Xyzzory' });
+console.log(personTree.findPerson('Xyzzory'));
+console.log(personTree.findPerson('Bill'));
+console.log(personTree.findPerson('Fred'));
+console.log(personTree.findPerson('nonexistent person'));
+
 // Binary Tree tests
 
-const tree = new BinaryTreeNode(5);
-console.log(tree);
-tree.add(1);
-console.log(tree);
-tree.add(8);
-console.log(tree);
-tree.add(9);
-console.log(tree);
+// const tree = new BinaryTreeNode(5);
+// console.log(tree);
+// tree.add(1);
+// console.log(tree);
+// tree.add(8);
+// console.log(tree);
+// tree.add(9);
+// console.log(tree);
 
 // Linked List tests
 
