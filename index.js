@@ -53,25 +53,62 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList("A");
-console.log(list.head);
-list.add("B");
-console.log(list.getList());
-list.add("C");
-console.log(list.getList());
-list.removeTail();
-console.log(list.getList());
-const otherList = new LinkedList(1);
-otherList.removeTail();
-console.log(otherList.getList());
-// just be null
-otherList.removeTail();
-console.log(otherList.getList());
-// also null but without breaking
-const thirdList = new LinkedList(1);
-thirdList.add(2);
-thirdList.removeTail();
-console.log(thirdList.getList());
-// [ 1 ]
+class BinaryTreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+
+  add(val) {
+    if (val < this.value) {
+      if (!this.left) {
+        this.left = new BinaryTreeNode(val);
+      } else {
+        this.left.add(val);
+      }
+    } else {
+      if (!this.right) {
+        this.right = new BinaryTreeNode(val);
+      } else {
+        this.right.add(val);
+      }
+    }
+  }
+}
+
+// Binary Tree tests
+
+const tree = new BinaryTreeNode(5);
+console.log(tree);
+tree.add(1);
+console.log(tree);
+tree.add(8);
+console.log(tree);
+tree.add(9);
+console.log(tree);
+
+// Linked List tests
+
+// const list = new LinkedList("A");
+// console.log(list.head);
+// list.add("B");
+// console.log(list.getList());
+// list.add("C");
+// console.log(list.getList());
+// list.removeTail();
+// console.log(list.getList());
+// const otherList = new LinkedList(1);
+// otherList.removeTail();
+// console.log(otherList.getList());
+// // just be null
+// otherList.removeTail();
+// console.log(otherList.getList());
+// // also null but without breaking
+// const thirdList = new LinkedList(1);
+// thirdList.add(2);
+// thirdList.removeTail();
+// console.log(thirdList.getList());
+// // [ 1 ]
 
 module.exports = { LinkedList };
